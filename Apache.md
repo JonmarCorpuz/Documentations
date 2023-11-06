@@ -1,6 +1,4 @@
-# Apache Procedures on Ubuntu
-
-## Installing Apache 
+# Ubuntu Procedures
 
 1. Set up an Ubuntu server: [Ubuntu Server Procedures](https://github.com/JonmarCorpuz/Documentations/blob/main/Ubuntu%20Server.md)
 
@@ -14,9 +12,7 @@ sudo apt update && sudo apt upgrade
 sudo apt install apache2
 ```
 
-## Running the Apache Web Server
-
-1. Start the Apache web server
+4. Start the Apache web server
 ```Bash
 sudo systemctl start apache2
 ```
