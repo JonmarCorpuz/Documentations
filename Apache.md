@@ -50,7 +50,17 @@ sudo chmod -R 755 /var/www/<WEBDAV DIRECTORY>
 
 6. Create a configuration file for the newly created WebDAV directory
 ```Bash
-sudo cp /etc/apache2/site-available/000-default.conf /etc/apache2/site-available/000-webdav.quebec.conf
+sudo cp /etc/apache2/site-available/000-default.conf /etc/apache2/site-available/000-<WEBDAV HOST>.conf
+```
+
+7. Specify the **DocumentRoot** in the configuration file to point to the previously created WebDAV dedicated directory
+```Bash
+sudo vim 000-<WEBDAV HOST>.conf
+```
+
+8. Restart the Apache web server
+```Bash
+sudo systemctl restart apache2
 ```
 
 
