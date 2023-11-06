@@ -1,6 +1,6 @@
 # Installing Ubuntu Server with RAID 10
 
-!(https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Ubuntu%20Server%20pt1.png)
+[https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Ubuntu%20Server%20pt1.png]
 
 ![https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Ubuntu%20Server%20pt2.png]
 
