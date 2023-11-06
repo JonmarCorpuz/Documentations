@@ -85,6 +85,21 @@ sudo apt -y install etckeeper
 sudo etckeeper init
 ```
 
+### Keepalived
+
+1. Update the server's local packages and upgrade them to their latest versions
+```Bash
+sudo apt update && sudo apt upgrade
+```
+
+2. Install Keepalived
+```Bash
+sudo apt -y install keepalived
+```
+
 ### JMeter
 
+# Sources
 
+Keepalived:
+- https://tecadmin.net/setup-ip-failover-on-ubuntu-with-keepalived/
