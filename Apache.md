@@ -4,7 +4,7 @@
 
 1. Set up an Ubuntu server: [Ubuntu Server Procedures](https://github.com/JonmarCorpuz/Documentations/blob/main/Ubuntu%20Server.md)
 
-2. Update the server's local packages adn upgrade them to their latest versions
+2. Update the server's local packages and upgrade them to their latest versions
 ```Bash
 sudo apt update && sudo apt upgrade
 ```
@@ -47,6 +47,12 @@ sudo chown -R www-data:www-data /var/www/<WEBDAV DIRECTORY>
 ```Bash
 sudo chmod -R 755 /var/www/<WEBDAV DIRECTORY>
 ```
+
+6. Create a configuration file for the newly created WebDAV directory
+```Bash
+cp /etc/apache2/site-available/000-default.conf /etc/apache2/site-available/000-webdav.quebec.conf
+```
+
 
 ### JMeter
 
