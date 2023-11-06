@@ -1,5 +1,7 @@
 # Ubuntu Procedures
 
+## Installing an Apache Web Server
+
 1. Set up an Ubuntu server: [Ubuntu Server Procedures](https://github.com/JonmarCorpuz/Documentations/blob/main/Ubuntu%20Server.md)
 
 2. Update the server's local packages adn upgrade them to their latest versions
@@ -16,3 +18,9 @@ sudo apt install apache2
 ```Bash
 sudo systemctl start apache2
 ```
+
+## Apache Tools
+
+### JMeter
+
+
