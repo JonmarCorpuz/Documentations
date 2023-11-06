@@ -19,7 +19,34 @@ sudo apt -y install apache2
 sudo systemctl start apache2
 ```
 
-## Apache Tools
+## Apache Extensions and Tools 
+
+### WebDAV
+
+1. Enable the required Apache modules for WebDAV
+```Bash
+sudo a2enmod dav && sudo a2enmod dav_fs
+```
+
+2. Restart the Apache web server to apply the changes
+```Bash
+sudo systemctl restart apache2
+```
+
+3. Create a directory to be shared via WebDAV
+```Bash
+sudo mkdir /var/www/<WEBDAV DIRECTORY>
+```
+
+4. Change the ownership of the newly created WebDAV dedicated directory to the **www-data** group
+```Bash
+sudo chown -R www-data:www-data /var/www/<WEBDAV DIRECTORY>
+```
+
+5. Set the necessary permissions for the WebDAV directory
+```Bash
+sudo chmod -R 755 /var/www/<WEBDAV DIRECTORY>
+```
 
 ### JMeter
 
