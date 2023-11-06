@@ -23,46 +23,72 @@ sudo systemctl start apache2
 
 ### WebDAV
 
-1. Enable the required Apache modules for WebDAV
+1. Update the server's local packages and upgrade them to their latest versions
+```Bash
+sudo apt update && sudo apt upgrade
+```
+
+2. Enable the required Apache modules for WebDAV
 ```Bash
 sudo a2enmod dav && sudo a2enmod dav_fs
 ```
 
-2. Restart the Apache web server to apply the changes
+3. Restart the Apache web server to apply the changes
 ```Bash
 sudo systemctl restart apache2
 ```
 
-3. Create a directory to be shared via WebDAV
+4. Create a directory to be shared via WebDAV
 ```Bash
 sudo mkdir /var/www/<WEBDAV DIRECTORY>
 ```
 
-4. Change the ownership of the newly created WebDAV dedicated directory to the **www-data** group
+5. Change the ownership of the newly created WebDAV dedicated directory to the **www-data** group
 ```Bash
 sudo chown -R www-data:www-data /var/www/<WEBDAV DIRECTORY>
 ```
 
-5. Set the necessary permissions for the WebDAV directory
+6. Set the necessary permissions for the WebDAV directory
 ```Bash
 sudo chmod -R 755 /var/www/<WEBDAV DIRECTORY>
 ```
 
-6. Create a configuration file for the newly created WebDAV directory
+7. Create a configuration file for the newly created WebDAV directory
 ```Bash
 sudo cp /etc/apache2/site-available/000-default.conf /etc/apache2/site-available/000-<WEBDAV HOST>.conf
 ```
 
-7. Specify the **DocumentRoot** in the configuration file to point to the previously created WebDAV dedicated directory
+8. Specify the **DocumentRoot** in the configuration file to point to the previously created WebDAV dedicated directory
 ```Bash
 sudo vim 000-<WEBDAV HOST>.conf
 ```
 
-8. Restart the Apache web server
+9. Restart the Apache web server
 ```Bash
 sudo systemctl restart apache2
 ```
 
+### etckeeper
+
+1. Update the server's local packages and upgrade them to their latest versions
+```Bash
+sudo apt update && sudo apt upgrade
+```
+
+2. Install etckeeper
+```Bash
+sudo apt -y install etckeeper
+```
+
+3. Initialize etckeeper
+```Bash
+sudo etckeeper init
+```
+
+4. Commit any changes made
+```Bash
+sudo etckeeper commit
+```
 
 ### JMeter
 
