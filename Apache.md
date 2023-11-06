@@ -85,11 +85,6 @@ sudo apt -y install etckeeper
 sudo etckeeper init
 ```
 
-4. Commit any changes made
-```Bash
-sudo etckeeper commit
-```
-
 ### JMeter
 
 
