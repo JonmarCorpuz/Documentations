@@ -72,6 +72,24 @@
 
 ![](https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Ubuntu%20Server%20pt36.png)
 
+# Configurating Ubuntu Server
+
+## Configurating Netplan
+
+1. sudo vim /etc/netplan/<CONFIGURATION FILE>
+```Bash
+network:
+  ethernets:
+    <NIC>:
+      [OPTIONS]
+version: <VERSION>
+```
+
+2. Apply the changes
+```Bash
+sudo netplan apply
+```
+
 # Ubuntu Tools
 
 ## etckeeper
