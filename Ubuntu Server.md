@@ -92,14 +92,14 @@ sudo netplan apply
 
 ## SSH Keys
 
-### Generate SSH Key Pair
+### Generate a Pair of SSH Keys
 
 1. empty
 ```Bash
 ssh-keygen -t rsa -b 4096 -C "<COMMENT>"
 ```
 
-### Copy SSH Key Pairs to Another Machine
+### Copy a Pair of SSH Keys to Another Machine
 
 1. empty
 ```Bash
