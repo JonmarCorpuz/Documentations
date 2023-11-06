@@ -74,7 +74,7 @@
 
 # Configurating Ubuntu Server
 
-## Configurating Netplan
+## Netplan
 
 1. sudo vim /etc/netplan/<CONFIGURATION FILE>
 ```Bash
