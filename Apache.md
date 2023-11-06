@@ -97,6 +97,45 @@ sudo apt update && sudo apt upgrade
 sudo apt -y install keepalived
 ```
 
+3. empty
+```Bash
+sudo vim /etc/keepalived/<KEETALIVED CONFIGURATION FILE NAME>.conf
+```
+
+```Bash
+vrrp_instance VI_1 {
+    state <STATE>  # The state of the instance (MASTER or BACKUP)
+    interface <INTERFACE>  # The network interface to be used
+    virtual_router_id <VIRTUAL ROUTER ID>  # The VRRP identifier (unique per VRRP instance)
+    priority <PRIORITY NUMBER>  # The priority of this server in the VRRP group
+    advert_int <INTERVAL SECONDS>  # Advertisement interval in seconds
+
+    authentication {
+        auth_type <AUTHENTICATION TYPE>  # Authentication type (PASS for plain text)
+        auth_pass <PASSWORD>  # Password for authentication
+    }
+
+    virtual_ipaddress {
+        <IP ADDRESS>  # Virtual IP address to be shared among the servers
+    }
+}
+```
+
+4. empty
+```Bash
+sudo ufw allow in on <INTERFACE> from <IP ADDRESS> to 224.0.0.18 proto ah comment "<COMMEN>" 
+```
+
+5. empty
+```Bash
+sudo systemctl restart ufw && sudo systemctl restart keepalived
+```
+
+6. empty
+```Bash
+sudo systemctl status ufw && sudo systemctl status keepalived
+```
+
 ### JMeter
 
 # Sources
