@@ -72,5 +72,24 @@
 
 ![](https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Ubuntu%20Server%20pt36.png)
 
+# Ubuntu Tools
+
+## etckeeper
+
+1. empty
+```Bash
+sudo apt update
+```
+
+2. empty
+```Bash
+sudo apt install etckeeper
+```
+
+3. emtpy
+```Bash
+sudo etckeeper init
+```
+
 # Sources
 
