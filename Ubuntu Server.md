@@ -90,5 +90,12 @@ version: <VERSION>
 sudo netplan apply
 ```
 
+## Generate SSH Key Pair
+
+1. empty
+```Bash
+ssh-keygen -t rsa -b 4096 -C "<COMMENT>"
+```
+
 # Sources
 
