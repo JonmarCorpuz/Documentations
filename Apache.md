@@ -50,7 +50,7 @@ sudo chmod -R 755 /var/www/<WEBDAV DIRECTORY>
 
 6. Create a configuration file for the newly created WebDAV directory
 ```Bash
-cp /etc/apache2/site-available/000-default.conf /etc/apache2/site-available/000-webdav.quebec.conf
+sudo cp /etc/apache2/site-available/000-default.conf /etc/apache2/site-available/000-webdav.quebec.conf
 ```
 
 
