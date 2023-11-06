@@ -11,7 +11,7 @@ sudo apt update && sudo apt upgrade
 
 3. Install the Apache HTTP server
 ```Bash
-sudo apt install apache2
+sudo apt -y install apache2
 ```
 
 4. Start the Apache web server
