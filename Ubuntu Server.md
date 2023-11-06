@@ -90,11 +90,20 @@ version: <VERSION>
 sudo netplan apply
 ```
 
-## Generate SSH Key Pair
+## SSH Keys
+
+### Generate SSH Key Pair
 
 1. empty
 ```Bash
 ssh-keygen -t rsa -b 4096 -C "<COMMENT>"
+```
+
+### Copy SSH Key Pairs to Another Machine
+
+1. empty
+```Bash
+ssh-copy-id <TARGET USER>@<TARGET IP ADDRESS>
 ```
 
 # Sources
