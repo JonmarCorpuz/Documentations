@@ -171,8 +171,18 @@ tar xvf apache-jmeter-5.6.2.tgz
 
 5. empty
 ```Bash
+mv apache-jmeter-5.6.2.tgz JMeter
+```
 
+6. empty
+```Bash
+cd JMeter/bin
+```
 
+7. empty
+```Bash
+./jmeter
+```
 
 # SSL 
 
