@@ -156,8 +156,22 @@ sudo apt update && sudo apt upgrade
 
 2. Install Java
 ```Bash
-sudo apt -y install openjdk-19-jre-headless
+sudo apt -y install openjdk-19-jre
 ```
+
+3. empty
+```Bash
+wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.2.tgz
+```
+
+4. emtpy
+```Bash
+tar xvf apache-jmeter-5.6.2.tgz
+```
+
+5. empty
+```Bash
+
 
 
 # SSL 
