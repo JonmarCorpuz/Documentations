@@ -1,6 +1,4 @@
-# Ubuntu Procedures
-
-## Installing an Apache Web Server
+# Installing Apache
 
 1. Set up an Ubuntu server: [Ubuntu Server Procedures](https://github.com/JonmarCorpuz/Documentations/blob/main/Ubuntu%20Server.md)
 
@@ -19,9 +17,7 @@ sudo apt -y install apache2
 sudo systemctl start apache2
 ```
 
-## Apache Extensions and Tools 
-
-### WebDAV
+# WebDAV
 
 1. Update the server's local packages and upgrade them to their latest versions
 ```Bash
@@ -83,7 +79,7 @@ sudo apache2ctl configtest
 sudo systemctl restart apache2
 ```
 
-### etckeeper
+# etckeeper
 
 1. Update the server's local packages and upgrade them to their latest versions
 ```Bash
@@ -100,7 +96,7 @@ sudo apt -y install etckeeper
 sudo etckeeper init
 ```
 
-### Keepalived
+# Keepalived
 
 1. Update the server's local packages and upgrade them to their latest versions
 ```Bash
@@ -151,9 +147,124 @@ sudo systemctl restart ufw && sudo systemctl restart keepalived
 sudo systemctl status ufw && sudo systemctl status keepalived
 ```
 
-### JMeter
+# JMeter
+
+# SSL 
+
+## Create a Self-Signed SSL Certificate for Apache
+
+1. Update the server's local packages and upgrade them to their latest versions
+```Bash
+sudo apt update && sudo apt upgrade
+```
+
+2. empty
+```Bash
+sudo ufw allow "Apache Full"
+```
+
+3. Activate Apache's `mod_ssl` module
+```Bash
+sudo a2enmod ssl
+```
+
+4. Restart Apache
+```Bash
+sudo systemctl restart apache2
+```
+
+5. Generate a self-signed SSL certificate using OpenSSL
+```Bash
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+```
+```Bash
+Country Name (2 letter code) [XX]:US
+State or Province Name (full name) []:Example
+Locality Name (eg, city) [Default City]:Example 
+Organization Name (eg, company) [Default Company Ltd]:Example Inc
+Organizational Unit Name (eg, section) []:Example Dept
+Common Name (eg, your name or your server's hostname) []:<
+Email Address []:webmaster@example.com
+```
+
+6. Create a new configuration file
+```Bash
+sudo vim /etc/apache2/sites-available/<CONFIGURATION FILE NAME>.conf
+```
+```Bash
+<VirtualHost *:443>
+   ServerName your_domain_or_ip
+   DocumentRoot /var/www/your_domain_or_ip
+
+   SSLEngine on
+   SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
+   SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+</VirtualHost>
+```
+
+7. empty
+```Bash
+sudo a2ensite your_domain_or_ip.conf
+```
+
+8. empty
+```Bash
+sudo apache2ctl configtest
+```
+
+9. empty
+```Bash
+sudo systemctl reload apache2
+```
+
+### Redirect Apache from HTTP to HTTPS
+
+1. empty
+```Bash
+sudo vim /etc/apache2/sites-available/your_domain_or_ip.conf
+```
+```Bash
+<VirtualHost *:80>
+	ServerName your_domain_or_ip
+	Redirect / https://your_domain_or_ip/
+</VirtualHost>
+```
+
+2. empty
+```Bash
+sudo apachectl configtest
+```
+
+3. empty
+```Bash
+sudo systemctl reload apache2
+```
+
+# Hardening the Apache Web Server
+
+## Hide Apache Version and Operating System
+
+1. empty
+```Bash
+sudo vim /etc/apache2/conf-enabled/security.conf
+```
+```Bash
+ServerSignature Off 
+ServerTokens Prod
+```
+
+2. Reload the Apache Web Server
+```Bash
+sudo systemctl restart apache2
+```
 
 # Sources
 
 Keepalived:
 - https://tecadmin.net/setup-ip-failover-on-ubuntu-with-keepalived/
+
+SSL:
+- https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04-fr
+
+Hardening the Apache Web Server:
+- https://hostadvice.com/how-to/web-hosting/ubuntu/how-to-harden-your-apache-web-server-on-ubuntu-18-04/
