@@ -19,7 +19,7 @@ version: <VERSION>
 sudo netplan apply
 ```
 
-# SSH Keys
+# Secure SHell
 
 ## Generate a Pair of SSH Keys
 
@@ -28,11 +28,31 @@ sudo netplan apply
 ssh-keygen -t rsa -b 4096 -C "<COMMENT>"
 ```
 
-## Copy a Pair of SSH Keys to Another Machine
+## Copy a Pair of SSH Keys onto Another Machine
 
 1. empty
 ```Bash
 ssh-copy-id <TARGET USER>@<TARGET IP ADDRESS>
+```
+
+## Disable SSH Access Via Password
+
+1. empty
+```Bash
+sudo vim /etc/ssh/sshd_config
+```
+
+```Bash
+# Change from:
+PasswordAuthentication yes
+
+# Change to:
+PasswordAuthentication no
+```
+
+2. Restart the SSH service to apply the new configuration
+```Bash
+sudo systemctl restart sshd
 ```
 
 # Uncomplicated Firewall 
