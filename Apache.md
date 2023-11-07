@@ -298,6 +298,9 @@ sudo systemctl restart apache2
 Keepalived:
 - https://tecadmin.net/setup-ip-failover-on-ubuntu-with-keepalived/
 
+JMeter:
+- https://askubuntu.com/questions/1443555/cant-run-jmeter-on-ubuntu-no-x11-display-variable-was-set
+
 SSL:
 - https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04-fr
 
