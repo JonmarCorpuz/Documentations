@@ -138,7 +138,7 @@ vrrp_instance VI_1 {
 
 4. empty
 ```Bash
-sudo ufw allow in on <INTERFACE> from <IP ADDRESS> to 224.0.0.18 proto ah comment "<COMMEN>" 
+sudo ufw allow in on <INTERFACE> from <IP ADDRESS> to 224.0.0.18 proto ah comment "<COMMENT>" 
 ```
 
 5. empty
