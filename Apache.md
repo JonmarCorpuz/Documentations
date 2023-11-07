@@ -63,7 +63,22 @@ sudo cp /etc/apache2/site-available/000-default.conf /etc/apache2/site-available
 sudo vim 000-<WEBDAV HOST>.conf
 ```
 
-9. Restart the Apache web server
+9. empty
+```Bash
+sudo mv /etc/apache2/sites-available/000-default.conf 000-default.conf.bak
+```
+
+10. empty
+```Bash
+sudo a2ensite 000-<WEBDAV HOST>.conf
+```
+
+11. empty
+```Bash
+sudo apache2ctl configtest
+```
+
+12. Restart the Apache web server
 ```Bash
 sudo systemctl restart apache2
 ```
