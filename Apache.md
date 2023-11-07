@@ -171,7 +171,7 @@ tar xvf apache-jmeter-5.6.2.tgz
 
 5. empty
 ```Bash
-mv apache-jmeter-5.6.2.tgz JMeter
+mv apache-jmeter-5.6.2 JMeter
 ```
 
 6. empty
