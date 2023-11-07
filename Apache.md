@@ -149,6 +149,17 @@ sudo systemctl status ufw && sudo systemctl status keepalived
 
 # JMeter
 
+1. Update the server's local packages and upgrade them to their latest versions
+```Bash
+sudo apt update && sudo apt upgrade
+```
+
+2. Install Java
+```Bash
+sudo apt -y install openjdk-19-jre-headless
+```
+
+
 # SSL 
 
 ## Create a Self-Signed SSL Certificate for Apache
