@@ -106,5 +106,12 @@ ssh-keygen -t rsa -b 4096 -C "<COMMENT>"
 ssh-copy-id <TARGET USER>@<TARGET IP ADDRESS>
 ```
 
+## ufw
+
+
+
 # Sources
+
+ufw:
+- https://wiki.ubuntu.com/UncomplicatedFirewall
 
