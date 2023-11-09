@@ -72,52 +72,40 @@ sudo etckeeper init
 
 # Keepalived
 
-1. Update the server's local packages and upgrade them to their latest versions
 ```Bash
+# 1. Update the server's local packages and upgrade them to their latest versions
 sudo apt update && sudo apt upgrade
-```
 
-2. Install Keepalived
-```Bash
+# 2. Install Keepalived
 sudo apt -y install keepalived
-```
 
-3. empty
-```Bash
+# 3. empty
 sudo vim /etc/keepalived/<KEETALIVED CONFIGURATION FILE NAME>.conf
-```
 
-```Bash
-vrrp_instance VI_1 {
-    state <STATE>  # The state of the instance (MASTER or BACKUP)
-    interface <INTERFACE>  # The network interface to be used
-    virtual_router_id <VIRTUAL ROUTER ID>  # The VRRP identifier (unique per VRRP instance)
-    priority <PRIORITY NUMBER>  # The priority of this server in the VRRP group
-    advert_int <INTERVAL SECONDS>  # Advertisement interval in seconds
+#vrrp_instance VI_1 {
+    #state <STATE>  # The state of the instance (MASTER or BACKUP)
+    #interface <INTERFACE>  # The network interface to be used
+    #virtual_router_id <VIRTUAL ROUTER ID>  # The VRRP identifier (unique per VRRP instance)
+    #priority <PRIORITY NUMBER>  # The priority of this server in the VRRP group
+    #advert_int <INTERVAL SECONDS>  # Advertisement interval in seconds
 
-    authentication {
-        auth_type <AUTHENTICATION TYPE>  # Authentication type (PASS for plain text)
-        auth_pass <PASSWORD>  # Password for authentication
-    }
+    #authentication {
+        #auth_type <AUTHENTICATION TYPE>  # Authentication type (PASS for plain text)
+        #auth_pass <PASSWORD>  # Password for authentication
+    #}
 
-    virtual_ipaddress {
-        <IP ADDRESS>  # Virtual IP address to be shared among the servers
-    }
-}
-```
+    #virtual_ipaddress {
+        #<IP ADDRESS>  # Virtual IP address to be shared among the servers
+    #}
+#}
 
-4. empty
-```Bash
+# 4. empty
 sudo ufw allow in on <INTERFACE> from <IP ADDRESS> to 224.0.0.18 proto ah comment "<COMMENT>" 
-```
 
-5. empty
-```Bash
+# 5. empty
 sudo systemctl restart ufw && sudo systemctl restart keepalived
-```
 
-6. empty
-```Bash
+# 6. empty
 sudo systemctl status ufw && sudo systemctl status keepalived
 ```
 
