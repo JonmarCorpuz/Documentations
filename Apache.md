@@ -1,81 +1,55 @@
 # Installing Apache
 
-1. Set up an Ubuntu server: [Ubuntu Server Procedures](https://github.com/JonmarCorpuz/Documentations/blob/main/Ubuntu%20Server.md)
-
-2. Update the server's local packages and upgrade them to their latest versions
 ```Bash
+# 1. Set up an Ubuntu server: https://github.com/JonmarCorpuz/Documentations/blob/main/Ubuntu%20Server.md
+
+# 2. Update the server's local packages and upgrade them to their latest versions
 sudo apt update && sudo apt upgrade
-```
 
-3. Install the Apache HTTP server
-```Bash
+# 3. Install the Apache HTTP server
 sudo apt -y install apache2
-```
 
-4. Start the Apache web server
-```Bash
+# 4. Start the Apache web server
 sudo systemctl start apache2
 ```
 
 # WebDAV
 
-1. Update the server's local packages and upgrade them to their latest versions
 ```Bash
+# 1. Update the server's local packages and upgrade them to their latest versions
 sudo apt update && sudo apt upgrade
-```
 
-2. Enable the required Apache modules for WebDAV
-```Bash
+# 2. Enable the required Apache modules for WebDAV
 sudo a2enmod dav && sudo a2enmod dav_fs
-```
 
-3. Restart the Apache web server to apply the changes
-```Bash
+# 3. Restart the Apache web server to apply the changes
 sudo systemctl restart apache2
-```
 
-4. Create a directory to be shared via WebDAV
-```Bash
+# 4. Create a directory to be shared via WebDAV
 sudo mkdir /var/www/<WEBDAV DIRECTORY>
-```
 
-5. Change the ownership of the newly created WebDAV dedicated directory to the **www-data** group
-```Bash
+# 5. Change the ownership of the newly created WebDAV dedicated directory to the **www-data** group
 sudo chown -R www-data:www-data /var/www/<WEBDAV DIRECTORY>
-```
 
-6. Set the necessary permissions for the WebDAV directory
-```Bash
+# 6. Set the necessary permissions for the WebDAV directory
 sudo chmod -R 755 /var/www/<WEBDAV DIRECTORY>
-```
 
-7. Create a configuration file for the newly created WebDAV directory
-```Bash
+# 7. Create a configuration file for the newly created WebDAV directory
 sudo cp /etc/apache2/site-available/000-default.conf /etc/apache2/site-available/000-<WEBDAV HOST>.conf
-```
 
-8. Specify the **DocumentRoot** in the configuration file to point to the previously created WebDAV dedicated directory
-```Bash
+# 8. Specify the **DocumentRoot** in the configuration file to point to the previously created WebDAV dedicated directory
 sudo vim 000-<WEBDAV HOST>.conf
-```
 
-9. empty
-```Bash
+# 9. empty
 sudo mv /etc/apache2/sites-available/000-default.conf 000-default.conf.bak
-```
 
-10. empty
-```Bash
+# 10. empty
 sudo a2ensite 000-<WEBDAV HOST>.conf
-```
 
-11. empty
-```Bash
+# 11. empty
 sudo apache2ctl configtest
-```
 
-12. Restart the Apache web server
-```Bash
+#12. Restart the Apache web server
 sudo systemctl restart apache2
 ```
 
