@@ -122,6 +122,19 @@ sudo systemctl restart sshd
 
 ## Uncomplicated Firewall 
 
+### Blocking ICMP
+
+```Bash
+# 1. Block incoming ICMP
+sudo ufw deny in proto icmp
+```
+
+### Blocking IPv6
+
+```Bash
+sudo ufw deny from any to any proto ipv6
+```
+
 # Sources
 
 Uncomplicated Firewall:
