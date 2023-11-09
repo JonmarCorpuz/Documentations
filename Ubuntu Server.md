@@ -76,58 +76,47 @@
 
 ## Netplan
 
-1. empty
-
 ```Bash
+# 1. empty
 sudo vim /etc/netplan/<CONFIGURATION FILE>
-```
 
-```Bash
-network:
-  ethernets:
-    <NIC>:
-      [OPTIONS]
-version: <VERSION>
-```
+#network:
+  #ethernets:
+    #<NIC>:
+      #[OPTIONS]
+#version: <VERSION>
 
-2. Apply the changes
-```Bash
+# 2. Apply the changes
 sudo netplan apply
 ```
 
-## Secure SHell
+## SSH
 
 ### Generate a Pair of SSH Keys
 
-1. empty
 ```Bash
+# 1. empty
 ssh-keygen -t rsa -b 4096 -C "<COMMENT>"
 ```
 
 ### Copy a Pair of SSH Keys onto Another Machine
 
-1. empty
 ```Bash
+# 1. empty
 ssh-copy-id <TARGET USER>@<TARGET IP ADDRESS>
 ```
 
 ### Disable SSH Access Via Password
 
-1. empty
 ```Bash
+# 1. empty
 sudo vim /etc/ssh/sshd_config
-```
 
-```Bash
-# Change from:
-PasswordAuthentication yes
+#PasswordAuthentication no
+#ChallengeResponseAuthentication no
+#UsePAM no
 
-# Change to:
-PasswordAuthentication no
-```
-
-2. Restart the SSH service to apply the new configuration
-```Bash
+# 2. Restart the SSH service to apply the new configuration
 sudo systemctl restart sshd
 ```
 
