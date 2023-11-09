@@ -207,13 +207,6 @@ sudo vim /etc/apache2/conf-enabled/security.conf
 sudo systemctl restart apache2
 ```
 
-## Blocking Protocols With ufw
-
-```Bash
-# Blocking incoming ICMP
-sudo ufw deny in proto icmp
-``` 
-
 # Sources
 
 Keepalived:
