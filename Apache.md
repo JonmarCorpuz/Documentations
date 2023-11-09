@@ -55,18 +55,14 @@ sudo systemctl restart apache2
 
 # etckeeper
 
-1. Update the server's local packages and upgrade them to their latest versions
 ```Bash
+# 1. Update the server's local packages and upgrade them to their latest versions
 sudo apt update && sudo apt upgrade
-```
 
-2. Install etckeeper
-```Bash
+# 2. Install etckeeper
 sudo apt -y install etckeeper
-```
 
-3. Initialize etckeeper
-```Bash
+# 3. Initialize etckeeper
 sudo etckeeper init
 ```
 
@@ -111,38 +107,27 @@ sudo systemctl status ufw && sudo systemctl status keepalived
 
 # JMeter
 
-1. Update the server's local packages and upgrade them to their latest versions
 ```Bash
+# 1. Update the server's local packages and upgrade them to their latest versions
 sudo apt update && sudo apt upgrade
-```
 
-2. Install Java
-```Bash
+# 2. Install Java
 sudo apt -y install openjdk-19-jre
-```
+#sudo apt-get purge openjdk*
 
-3. empty
-```Bash
+# 3. empty
 wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.2.tgz
-```
 
-4. emtpy
-```Bash
+# 4. emtpy
 tar xvf apache-jmeter-5.6.2.tgz
-```
 
-5. empty
-```Bash
+# 5. empty
 mv apache-jmeter-5.6.2 JMeter
-```
 
-6. empty
-```Bash
+# 6. empty
 cd JMeter/bin
-```
 
-7. empty
-```Bash
+# 7. empty
 ./jmeter
 ```
 
@@ -150,90 +135,67 @@ cd JMeter/bin
 
 ## Create a Self-Signed SSL Certificate for Apache
 
-1. Update the server's local packages and upgrade them to their latest versions
 ```Bash
+# 1. Update the server's local packages and upgrade them to their latest versions
 sudo apt update && sudo apt upgrade
-```
 
-2. empty
-```Bash
+# 2. empty
 sudo ufw allow "Apache Full"
-```
 
-3. Activate Apache's `mod_ssl` module
-```Bash
+# 3. Activate Apache's `mod_ssl` module
 sudo a2enmod ssl
-```
 
-4. Restart Apache
-```Bash
+# 4. Restart Apache
 sudo systemctl restart apache2
-```
 
-5. Generate a self-signed SSL certificate using OpenSSL
-```Bash
+# 5. Generate a self-signed SSL certificate using OpenSSL
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
-```
-```Bash
-Country Name (2 letter code) [XX]:US
-State or Province Name (full name) []:Example
-Locality Name (eg, city) [Default City]:Example 
-Organization Name (eg, company) [Default Company Ltd]:Example Inc
-Organizational Unit Name (eg, section) []:Example Dept
-Common Name (eg, your name or your server's hostname) []:<
-Email Address []:webmaster@example.com
-```
 
-6. Create a new configuration file
-```Bash
+#Country Name (2 letter code) [XX]:US
+#State or Province Name (full name) []:Example
+#Locality Name (eg, city) [Default City]:Example 
+#Organization Name (eg, company) [Default Company Ltd]:Example Inc
+#Organizational Unit Name (eg, section) []:Example Dept
+#Common Name (eg, your name or your server's hostname) []:<
+#Email Address []:webmaster@example.com
+
+# 6. Create a new configuration file
 sudo vim /etc/apache2/sites-available/<CONFIGURATION FILE NAME>.conf
-```
-```Bash
-<VirtualHost *:443>
-   ServerName your_domain_or_ip
-   DocumentRoot /var/www/your_domain_or_ip
 
-   SSLEngine on
-   SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
-   SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
-</VirtualHost>
-```
+#<VirtualHost *:443>
+   #ServerName your_domain_or_ip
+   #DocumentRoot /var/www/your_domain_or_ip
 
-7. empty
-```Bash
+   #SSLEngine on
+   #SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
+   #SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+#</VirtualHost>
+
+# 7. empty
 sudo a2ensite your_domain_or_ip.conf
-```
 
-8. empty
-```Bash
+# 8. empty
 sudo apache2ctl configtest
-```
 
-9. empty
-```Bash
+# 9. empty
 sudo systemctl reload apache2
 ```
 
 ### Redirect Apache from HTTP to HTTPS
 
-1. empty
 ```Bash
+# 1. empty
 sudo vim /etc/apache2/sites-available/your_domain_or_ip.conf
-```
-```Bash
-<VirtualHost *:80>
-	ServerName your_domain_or_ip
-	Redirect / https://your_domain_or_ip/
-</VirtualHost>
-```
 
-2. empty
-```Bash
+#<VirtualHost *:80>
+	#ServerName your_domain_or_ip
+	#Redirect / https://your_domain_or_ip/
+#</VirtualHost>
+
+# 2. empty
 sudo apachectl configtest
-```
 
-3. empty
-```Bash
+# 3. empty
 sudo systemctl reload apache2
 ```
 
@@ -241,17 +203,14 @@ sudo systemctl reload apache2
 
 ## Hide Apache Version and Operating System
 
-1. empty
 ```Bash
+# 1. empty
 sudo vim /etc/apache2/conf-enabled/security.conf
-```
-```Bash
-ServerSignature Off 
-ServerTokens Prod
-```
 
-2. Reload the Apache Web Server
-```Bash
+#ServerSignature Off 
+#ServerTokens Prod
+
+# 2. Reload the Apache Web Server
 sudo systemctl restart apache2
 ```
 
