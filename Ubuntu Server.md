@@ -90,6 +90,27 @@ sudo vim /etc/netplan/<CONFIGURATION FILE>
 sudo netplan apply
 ```
 
+## Machine ID
+
+### Modify the Identifier
+
+```Bash
+# 1. empty
+sudo rm -f /etc/machine-id
+
+# 2. empty
+sudo dbus-uuidgen --ensure=/etc/machine-id
+
+# 3. empty
+sudo rm /var/lib/dbus/machine-id
+
+# 4. empty
+sudo dbus-uuidgen --ensure
+
+# 5. empty
+reboot
+```
+
 ## SSH
 
 ### Generate a Pair of SSH Keys
