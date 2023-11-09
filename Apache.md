@@ -148,36 +148,47 @@ sudo a2enmod ssl
 # 4. Restart Apache
 sudo systemctl restart apache2
 
-# 5. Generate a self-signed SSL certificate using OpenSSL
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+# 5. empty
+openssl req -out <FILENAME1>.key <BITS>
 
-#Country Name (2 letter code) [XX]:US
-#State or Province Name (full name) []:Example
-#Locality Name (eg, city) [Default City]:Example 
-#Organization Name (eg, company) [Default Company Ltd]:Example Inc
-#Organizational Unit Name (eg, section) []:Example Dept
-#Common Name (eg, your name or your server's hostname) []:<
-#Email Address []:webmaster@example.com
-
-# 6. Create a new configuration file
-sudo vim /etc/apache2/sites-available/<CONFIGURATION FILE NAME>.conf
-
-#<VirtualHost *:443>
-   #ServerName your_domain_or_ip
-   #DocumentRoot /var/www/your_domain_or_ip
-
-   #SSLEngine on
-   #SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
-   #SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
-#</VirtualHost>
+# 6. empty
+openssl req -new -key <FILENAME1>.key -out <FILENAME2>.csr
 
 # 7. empty
-sudo a2ensite your_domain_or_ip.conf
+openssl x509 -req -days 365 -in <FILENAME2>.csr -signkey <FILENAME1>.key -out <FILENAME3>.crt
 
-# 8. empty
+#Country Name (2 letter code) [XX]: <COUNTRY NAME>
+#State or Province Name (full name) []: <STATE OR PROVINCE>
+#Locality Name (eg, city) [Default City]: <CITY NAME> 
+#Organization Name (eg, company) [Default Company Ltd]: <ORGANIZATION NAME>
+#Organizational Unit Name (eg, section) []: <DEPARTMENT NAME>
+#Common Name (eg, your name or your server's hostname) []: <FQDN>
+#Email Address []: <EMAIL ADDRESS>
+
+8. empty
+vm <FILENAME1>.key /etc/ssl/private
+
+9. empty
+vm <FILENAME2>.csr /etc/ssl/certs
+
+10. empty
+vm <FILENAME3>.crt /etc/ssl/certs
+
+# 11. empty
+sudo vim /etc/apache2/sites-available/<WEBDAV DIRECTORY>.conf
+
+#<VirtualHost *:443>
+   #DocumentRoot /var/www/<WEBDAV DIRECTORY>
+
+   #SSLEngine on
+   #SSLCertificateFile /etc/ssl/certs/<FILENAME3>.crt
+   #SSLCertificateKeyFile /etc/ssl/private/<FILENAME1>.key
+#</VirtualHost>
+
+# 12. empty
 sudo apache2ctl configtest
 
-# 9. empty
+# 13. empty
 sudo systemctl reload apache2
 ```
 
@@ -187,9 +198,8 @@ sudo systemctl reload apache2
 # 1. empty
 sudo vim /etc/apache2/sites-available/your_domain_or_ip.conf
 
-#<VirtualHost *:80>
+#<VirtualHost *:443>
 	#ServerName your_domain_or_ip
-	#Redirect / https://your_domain_or_ip/
 #</VirtualHost>
 
 # 2. empty
