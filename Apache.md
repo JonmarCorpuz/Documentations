@@ -231,6 +231,7 @@ Keepalived:
 
 JMeter:
 - https://askubuntu.com/questions/1443555/cant-run-jmeter-on-ubuntu-no-x11-display-variable-was-set
+- https://www.youtube.com/watch?v=bJRPTHCVDUg
 
 SSL:
 - https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04-fr
