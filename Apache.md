@@ -192,23 +192,6 @@ sudo apache2ctl configtest
 sudo systemctl reload apache2
 ```
 
-### Redirect Apache from HTTP to HTTPS
-
-```Bash
-# 1. empty
-sudo vim /etc/apache2/sites-available/your_domain_or_ip.conf
-
-#<VirtualHost *:443>
-	#ServerName your_domain_or_ip
-#</VirtualHost>
-
-# 2. empty
-sudo apachectl configtest
-
-# 3. empty
-sudo systemctl reload apache2
-```
-
 # Hardening the Apache Web Server
 
 ## Hide Apache Version and Operating System
@@ -223,6 +206,13 @@ sudo vim /etc/apache2/conf-enabled/security.conf
 # 2. Reload the Apache Web Server
 sudo systemctl restart apache2
 ```
+
+## Blocking Protocols With ufw
+
+```Bash
+# Blocking incoming ICMP
+sudo ufw deny in proto icmp
+``` 
 
 # Sources
 
