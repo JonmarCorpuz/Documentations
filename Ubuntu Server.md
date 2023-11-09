@@ -132,6 +132,7 @@ sudo ufw deny in proto icmp
 ### Blocking IPv6
 
 ```Bash
+# 1. Block IPv6
 sudo ufw deny from any to any proto ipv6
 ```
 
