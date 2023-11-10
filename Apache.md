@@ -149,7 +149,7 @@ sudo a2enmod ssl
 sudo systemctl restart apache2
 
 # 5. empty
-openssl req -out <FILENAME1>.key <BITS>
+openssl genrsa -out <FILENAME1>.key <BITS>
 
 # 6. empty
 openssl req -new -key <FILENAME1>.key -out <FILENAME2>.csr
