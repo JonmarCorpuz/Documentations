@@ -131,6 +131,9 @@ zmcontrol restart
 ## Linking Zimbra to Active Directory
 - https://wiki.zimbra.com/wiki/Configure_authentication_with_Active_Directory
 
+## Secure Authentication
+- https://wiki.zimbra.com/wiki/Secure_Authentication_between_Zimbra_and_AD#:~:text=Click%20Start%20%3E%20Run%20%3E%20type%20ldp,FQDN%20of%20the%20AD%20server.&text=Then%2C%20you%20can%20Bind%20to%20AD.
+
 ## Error Solutions
 - https://www.ricmedia.com/tutorials/set-permanent-dns-nameservers-ubuntu-debian-resolv-conf
 - https://wiki.zimbra.com/wiki/Email_doesn%27t_show_up_immediately_in_the_inbox
