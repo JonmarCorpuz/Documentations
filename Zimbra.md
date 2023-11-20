@@ -68,6 +68,8 @@
 
 ![](https://github.com/JonmarCorpuz/Documentations/blob/main/Assets/Ubuntu%20Server%20pt35.png)
 
+# Configuring Ubuntu Server
+
 ```Bash
 sudo vim /etc/netplan/00-installer-config.yaml
 ```
@@ -76,14 +78,8 @@ sudo vim /etc/netplan/00-installer-config.yaml
 sudo netpan apply
 ```
 
-## 
-
 ```Bash
 sudo vim /etc/hosts/
-```
-
-```Bash
-sudo vim /etc/resolv.conf
 ```
 
 # Installing Zimbra (Open-Source)
@@ -121,6 +117,10 @@ zmcontrol restart
 ```
 
 # Authenticating Zimbra to AD With LDAP
+
+```Bash
+sudo vim /etc/resolv.conf
+```
 
 # Sources
 
