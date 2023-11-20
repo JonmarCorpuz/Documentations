@@ -1,6 +1,4 @@
-# Procedures
-
-## Setting Up Ubuntu Server 
+# Setting Up Ubuntu Server 
 
 ![](https://github.com/JonmarCorpuz/Documentations/blob/main/Assets/Ubuntu%20Server%20pt1.png)
 
@@ -88,7 +86,7 @@ sudo vim /etc/hosts/
 sudo vim /etc/resolv.conf
 ```
 
-##
+# Installing Zimbra (Open-Source)
 
 ```Bash
 sudo wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954.tgz
@@ -121,6 +119,8 @@ su - zimbra
 ```Bash
 zmcontrol restart
 ```
+
+# Authenticating Zimbra to AD With LDAP
 
 # Sources
 
