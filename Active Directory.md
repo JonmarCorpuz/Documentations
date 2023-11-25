@@ -1,4 +1,4 @@
-# Installing Windows Server 
+# Install Windows Server 
 
 ![](https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Windows%20Server%20pt1.png)
 
@@ -23,6 +23,10 @@
 ![](https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Windows%20Server%20pt11.png)
 
 ![](https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Windows%20Server%20pt12.png)
+
+# Install Active Directory Services
+
+## Install the Active Directory Domain Services
 
 ![](https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Windows%20Server%20pt13.png)
 
@@ -71,5 +75,11 @@
 ![](https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Windows%20Server%20pt35.png)
 
 ![](https://github.com/JonmarCorpuz/Procedures/blob/main/Assets/Windows%20Server%20pt36.png)
+
+## Install the Domain Name System Service
+
+## Install the Dynamic Host Configuration Protocol Service
+
+## Install the Active Directory Certification Services Service
 
 # Sources
