@@ -142,3 +142,7 @@ sudo vim /etc/resolv.conf
 - https://wiki.zimbra.com/wiki/Email_doesn%27t_show_up_immediately_in_the_inbox
 - https://wiki.zimbra.com/wiki/Email_doesn%27t_show_up_immediately_in_the_inbox
 
+## SSL 
+- https://cheapsslweb.com/resources/how-to-install-an-ssl-certificate-on-zimbra
+- https://www.ssltrust.ca/help/setup-guides/zimbra-ssl-install
+
